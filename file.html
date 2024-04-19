@@ -1,0 +1,30 @@
+<script>
+    function getComputerChoice() {
+        var options = ["Rock", "Paper", "Scissors"];
+        var choice = options[Math.floor(Math.random() * options.length)];
+        return choice;
+    }   
+
+    function playRound(playerSelection, computerSelection) {
+    const playerChoice = playerSelection.toLowerCase();
+    const computerChoice = computerSelection.toLowerCase();
+
+    if (playerChoice === computerChoice) {
+        return "It's a tie! Both chose " + playerChoice;
+    } else if (
+        (playerChoice === "rock" && computerChoice === "scissors") ||
+        (playerChoice === "paper" && computerChoice === "rock") ||
+        (playerChoice === "scissors" && computerChoice === "paper")
+    ) {
+        return "You win! " + playerChoice + " beats " + computerChoice;
+    } else {
+        return "You lose! " + computerChoice + " beats " + playerChoice;
+    }
+}
+for (let i = 0; i < 5; i++) {
+    const playerSelection = window.prompt("Choose Rock, Paper or Scissors");
+    const computerSelection = getComputerChoice();
+    console.log(playRound(playerSelection, computerSelection));
+}
+
+</script>
